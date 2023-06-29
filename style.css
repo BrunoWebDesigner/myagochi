@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 5px auto;
+}
+
+body {
+    background: #abcdef;
+}
+
+div {
+    position: absolute;
+    line-height: 80%;
+    left: 0;
+    right: 0;
+    max-height: 500px;
+    color: #dffdcf;
+}
+
+.home {
+    width: 500px;
+}
+
+.home img {
+    width: 500px;
+    display: flex;
+}
+
+.tamagotchi {
+    max-width: 80px;
+}
+
+.tamagotchi img {
+    position: absolute;
+    max-width: 80px;
+    top: 240px;
+    left: 60px;
+    z-index: 0;
+    animation: squash 1s infinite; /* Aplica a animação "squash" com duração de 0.5 segundos e repetição infinita */
+    transform-origin: bottom; /* Define o ponto de origem da transformação */
+}
+
+@keyframes squash {
+    0% { transform: scaleY(1); } /* Escala vertical inicial */
+    50% { transform: scaleY(0.95); } /* Escala vertical achatada */
+    100% { transform: scaleY(1); } /* Escala vertical de volta ao tamanho original */
+}
+
+.stats {
+	max-width: 160px;
+	top: 225px;
+    right: 50px;
+}
+
+.stats p {
+	text-align: justify;
+    font-family: sans-serif;
+    color: rgb(7, 7, 7);
+    font-weight: bold;
+}
+
+/* ------ LINK BUTTONS-------- */
+.links {
+    text-align: center;
+    top: 390px;
+}
+
+#live {
+    position: relative;
+    top: -90px;
+    right: 150px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+#website {
+    position: relative;
+    top: -90px;
+    right: -150px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+
+.actions {
+    text-align: center;
+    top: 390px;
+}
+
+button {
+    height: 25px;
+    border-radius: 6px;
+    background-color: rgb(255, 54, 228);
+    color: azure;
+    font-family: sans-serif;
+    font-weight: 400;
+    box-shadow: 1px 1px black;
+}
+
+a {
+    text-decoration: none;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); } /* Escala inicial */
+    50% { transform: scale(1.1); } /* Escala aumentada */
+    100% { transform: scale(1); } /* Escala de volta ao tamanho original */
+}
+
+
+/* --------RESPONSIVINESS-------- */
+@media (max-width: 500px) {
+    * {
+        margin: 5px auto;
+    }
+    
+    div {
+        line-height: 60%;
+        max-height: 300px;
+    }
+    
+    .home {
+        width: 300px;
+    }
+    
+    .home img {
+        width: 300px;
+        display: flex;
+    }
+    
+    .tamagotchi {
+        max-width: 60px;
+    }
+    
+    .tamagotchi img {
+        max-width: 80px;
+        top: 115px;
+        left: 20px;
+        scale: 0.7;
+    }
+    
+    .stats {
+        max-width: 160px;
+        top: 135px;
+        right: -5px;
+        scale: 0.8;
+    }
+    
+    .actions {
+        top: 230px;
+        scale: 0.7;
+    }
+
+    .links {
+        top: 240px;
+        scale: 0.7;
+    }
+
+    #live {
+        right: 130px;
+    }
+    
+    #website {
+        right: -120px;
+    }
+  }

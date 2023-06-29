@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tamagotchi Pet Project</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <div class="home">
+    	<img class="consoleDay" src="tamagotchi-home.png"/>
+    </div>
+    <div class="stats">
+        <p id="hunger">Fome: 1</p>
+        <p id="sleepiness">Sono: 1</p>
+        <p id="boredom">Tédio: 1</p>
+        <p id="age">Level: 0</p>
+    </div>
+    <div class="tamagotchi">
+    	<img id="catImg" src="tamagotchi-egg.png"/>
+	</div>
+
+    <div class="links">
+    <a href="">
+        <button id="live">Lives</button>  
+    </a>
+    <a href="">
+        <button id="website">Site</button>
+    </a>
+    </div>
+
+    <div class="actions">
+        <button id="feed">Rosquinha</button>
+        <button id="sleep">Álcool</button>
+        <button id="play">Piada</button>
+        <button id="restart">Recomeçar</button><br>
+        <button id="salvar" onclick="salvarEstado()">Salvar Jogo</button>
+        <button id="restaurar" onclick="restaurarEstado()">Carregar Jogo</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+</body>
+
+</html>
