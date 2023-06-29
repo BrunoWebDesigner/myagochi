@@ -70,6 +70,7 @@ div {
     right: 150px;
     height: 30px;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 #website {
@@ -78,6 +79,7 @@ div {
     right: -150px;
     height: 30px;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 
@@ -94,6 +96,7 @@ button {
     font-family: sans-serif;
     font-weight: 400;
     box-shadow: 1px 1px black;
+    cursor: pointer;
 }
 
 a {
