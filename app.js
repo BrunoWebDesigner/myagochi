@@ -93,7 +93,7 @@ function grow() {
             }
 
             $(".tamagotchi img").attr("src", imgSrc);
-        }, 1000); // Atualizar a cada 1 segundo (1000 milissegundos)
+        }, 500); // Atualizar a cada 1 segundo (1000 milissegundos)
     }
 }
 
@@ -104,6 +104,8 @@ function hatch() {
         grow();
     }, 50000)
 }
+
+
 //create functions to increment stats
 
 function incrementHunger() {
@@ -115,7 +117,7 @@ function incrementHunger() {
         } else {
             die();
         }
-    }, 30000)
+    }, 50000)
 };
 
 function incrementSleepiness() {
@@ -128,7 +130,7 @@ function incrementSleepiness() {
         } else {
             die();
         }
-    }, 40000)
+    }, 60000)
 
 };
 
@@ -141,11 +143,12 @@ function incrementBoredom() {
         } else {
             die();
         }
-    }, 50000)
+    }, 70000)
 };
 
 function incrementAge() {
-    let timeoutID = window.setTimeout(function() {
+    if (alive == true) {
+        let timeoutID = window.setTimeout(function() {
         myTamagotchi.age += 1;
         $("#age").replaceWith(`<p id='age'>Level: ${myTamagotchi.age}</p>`);
         if (myTamagotchi.age < 200) {
@@ -154,8 +157,10 @@ function incrementAge() {
         if (myTamagotchi.age >= 100){
             $("img:eq(0)").replaceWith("<img id='catImg' src='tamagotchi-egg.png'/>");
         }
-    }, 120000)
-
+        }, 150000)
+    } else {
+        return;
+    }
 }
 
 //create functions to decrease stats
@@ -182,6 +187,8 @@ function play() {
 }
 
 function bedtime(time) {
+    
+    if (myTamagotchi.age < 100) {
     $(".tamagotchi img").css("display", "none");
     $("img:eq(0)").replaceWith("<img src='tamagotchi-home-night.png'>");
     let timeoutID = window.setTimeout(function() {
@@ -190,6 +197,10 @@ function bedtime(time) {
         $("img:eq(0)").replaceWith("<img src='tamagotchi-home.png'>")
         $("#sleepiness").replaceWith(`<p id='sleepiness'>Sono: ${myTamagotchi.sleepiness}</p>`);
     }, time)
+    } else {
+        myTamagotchi.sleepiness = 0;
+        $("#sleepiness").replaceWith(`<p id='sleepiness'>Sono: ${myTamagotchi.sleepiness}</p>`);
+    }
     myTamagotchi.boredom += 1;
 }
 
@@ -203,26 +214,25 @@ function die() {
     $("#restart").show();
     $("#salvar").hide();
     $("#restaurar").hide();
-    $("#age").hide();
     clearInterval(growInterval);
 }
 
 function restart() {
 
-    let alive = true;
+    alive = true;
     $("#restart").hide();
     $("img:eq(1)").replaceWith("<img id='catImg' src='tamagotchi-egg.png'/>");
     myTamagotchi.sleepiness = 0;
-    $("#sleepiness").replaceWith(`<p id='sleepiness'>Sono: ${myTamagotchi.sleepiness}</p>`);
+    $("#sleepiness").replaceWith(`<p id='sleepiness'>Sono: 1</p>`);
     $("#sleep").show()
     myTamagotchi.boredom = 0;
-    $("#boredom").replaceWith(`<p id='boredom'>Tédio: ${myTamagotchi.boredom}</p>`);
+    $("#boredom").replaceWith(`<p id='boredom'>Tédio: 1</p>`);
     $("#play").show()
     myTamagotchi.hunger = 0;
-    $("#hunger").replaceWith(`<p id='hunger'>Fome: ${myTamagotchi.hunger}</p>`);
+    $("#hunger").replaceWith(`<p id='hunger'>Fome: 1</p>`);
     $("#feed").show()
     myTamagotchi.age = 0
-    $("#age").replaceWith(`<p id='age'>Level: ${myTamagotchi.age}</p>`);
+    $("#age").replaceWith(`<p id='age'>Level: 0</p>`);
     $("#salvar").show();
     $("#restaurar").show();
     startGame();
