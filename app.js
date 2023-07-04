@@ -24,24 +24,25 @@ function restaurarEstado() {
         $("#sleepiness").replaceWith(`<p id='sleepiness'>Sono: ${myTamagotchi.sleepiness}</p>`);
         $("#boredom").replaceWith(`<p id='boredom'>Tédio: ${myTamagotchi.boredom}</p>`);
         $("#age").replaceWith(`<p id='age'>Level: ${myTamagotchi.age}</p>`);
-        incrementAge();
 
         // Atualize a imagem do Tamagotchi com base na idade
+        let imgSrc;
         if (myTamagotchi.age === 0) {
-            $(".tamagotchi img").attr("src", "tamagotchi-egg.png");
+            imgSrc = "tamagotchi-egg.png";
         } else if (myTamagotchi.age < 4) {
-            $(".tamagotchi img").attr("src", "tamagotchi-egg2.png");
+            imgSrc = "tamagotchi-egg2.png";
         } else if (myTamagotchi.age < 8) {
-            $(".tamagotchi img").attr("src", "cat1.png");
+            imgSrc = "cat1.png";
         } else if (myTamagotchi.age < 15) {
-            $(".tamagotchi img").attr("src", "cat2.png");
+            imgSrc = "cat2.png";
         } else if (myTamagotchi.age < 25) {
-            $(".tamagotchi img").attr("src", "cat3.png");
+            imgSrc = "cat3.png";
         } else if (myTamagotchi.age < 50) {
-            $(".tamagotchi img").attr("src", "cat4.png");
+            imgSrc = "cat4.png";
         } else {
-            $(".tamagotchi img").attr("src", "cat5.png");
+            imgSrc = "cat5.png";
         }
+        $(".tamagotchi img").attr("src", imgSrc);
     }
     if (alive == false) {
         $("#restart").hide();
@@ -50,7 +51,7 @@ function restaurarEstado() {
         $("#feed").show();
         $("img:eq(1)").replaceWith(`<img src="${imgSrc}">`);
     }
-} 
+}
     
 
 // create tamagotchi object
