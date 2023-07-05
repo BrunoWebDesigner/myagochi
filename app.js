@@ -37,10 +37,20 @@ function restaurarEstado() {
             imgSrc = "cat2.png";
         } else if (myTamagotchi.age < 25) {
             imgSrc = "cat3.png";
-        } else if (myTamagotchi.age < 50) {
+        } else if (myTamagotchi.age < 40) {
             imgSrc = "cat4.png";
-        } else {
+        } else if (myTamagotchi.age < 60) {
             imgSrc = "cat5.png";
+        } else if (myTamagotchi.age < 85) {
+            imgSrc = "cat6.png";
+        } else if (myTamagotchi.age < 120) {
+            imgSrc = "cat7.png";
+        } else if (myTamagotchi.age < 160) {
+            imgSrc = "cat8.png";
+        } else if (myTamagotchi.age < 190) {
+            imgSrc = "cat9.png";
+        } else {
+            imgSrc = "cat10.png";
         }
         $(".tamagotchi img").attr("src", imgSrc);
     }
@@ -87,10 +97,20 @@ function grow() {
                 imgSrc = "cat2.png";
             } else if (myTamagotchi.age < 25) {
                 imgSrc = "cat3.png";
-            } else if (myTamagotchi.age < 50) {
+            } else if (myTamagotchi.age < 40) {
                 imgSrc = "cat4.png";
-            } else {
+            } else if (myTamagotchi.age < 60) {
                 imgSrc = "cat5.png";
+            } else if (myTamagotchi.age < 85) {
+                imgSrc = "cat6.png";
+            } else if (myTamagotchi.age < 120) {
+                imgSrc = "cat7.png";
+            } else if (myTamagotchi.age < 160) {
+                imgSrc = "cat8.png";
+            } else if (myTamagotchi.age < 190) {
+                imgSrc = "cat9.png";
+            } else {
+                imgSrc = "cat10.png";
             }
 
             $(".tamagotchi img").attr("src", imgSrc);
@@ -152,10 +172,10 @@ function incrementAge() {
         let timeoutID = window.setTimeout(function() {
         myTamagotchi.age += 1;
         $("#age").replaceWith(`<p id='age'>Level: ${myTamagotchi.age}</p>`);
-        if (myTamagotchi.age < 200) {
+        if (myTamagotchi.age < 300) {
             incrementAge();
         }
-        if (myTamagotchi.age >= 100){
+        if (myTamagotchi.age >= 200){
             $("img:eq(0)").replaceWith("<img id='catImg' src='tamagotchi-egg.png'/>");
         }
         }, 150000)
@@ -189,7 +209,7 @@ function play() {
 
 function bedtime(time) {
     
-    if (myTamagotchi.age < 100) {
+    if (myTamagotchi.age < 200) {
     $(".tamagotchi img").css("display", "none");
     $("img:eq(0)").replaceWith("<img src='tamagotchi-home-night.png'>");
     let timeoutID = window.setTimeout(function() {
